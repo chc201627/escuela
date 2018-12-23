@@ -7,10 +7,8 @@ namespace etapa1
     {
         static void Main(string[] args)
         {
-            var escuela = new Escuela("Platzi Academy", 2012);
-            escuela.Pais="Colombia";
-            escuela.Ciudad = "Bogota";
-            escuela.tipoEscuela = TiposEscuela.Primaria;
+            var escuela = new Escuela("Platzi Academy", 2012,TiposEscuela.PresEscolar,
+                        ciudad:"Bogota",pais:"Colombia");            
             Console.WriteLine(escuela);
         }
     }
