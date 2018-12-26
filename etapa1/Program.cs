@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CoreEscuela.Entidades;
 using static System.Console;
 
@@ -12,13 +13,37 @@ namespace etapa1
                         ciudad: "Bogota", pais: "Colombia");
 
 
-            escuela.Cursos = new Curso[] {
-                new Curso(){Nombre = "101"},
-                 new Curso(){Nombre = "201"},
-                new Curso(){Nombre = "301"}
-           };
-           
+            escuela.Cursos = new List<Curso>(){
+
+                new Curso(){Nombre = "101",Jornada=TiposJornada.Mañana},
+               new Curso(){Nombre = "201",Jornada=TiposJornada.Mañana},
+               new Curso(){Nombre = "301",Jornada=TiposJornada.Mañana}
+            };
+
+            // Arreglos C#    
+            //     escuela.Cursos = new Curso[] {
+            //         new Curso(){Nombre = "101"},
+            //          new Curso(){Nombre = "201"},
+            //         new Curso(){Nombre = "301"}
+            //    };
+
+            escuela.Cursos.Add(new Curso() { Nombre = "102", Jornada = TiposJornada.Tarde });
+            escuela.Cursos.Add(new Curso() { Nombre = "202", Jornada = TiposJornada.Tarde });
+
+            var otraCollection = new List<Curso>(){
+
+                new Curso(){Nombre = "401",Jornada=TiposJornada.Mañana},
+                new Curso(){Nombre = "501",Jornada=TiposJornada.Mañana},
+                new Curso(){Nombre = "502",Jornada=TiposJornada.Tarde}
+            };
+
+     
+            escuela.Cursos.AddRange(otraCollection);
+            escuela.Cursos.Remove
+
             imprimirCursosEscuela(escuela);
+
+
         }
 
         private static void imprimirCursosEscuela(Escuela escuela)
@@ -27,13 +52,13 @@ namespace etapa1
             WriteLine("Cursos de la Escuela");
             WriteLine("================");
             if (escuela?.Cursos != null)
-                {
+            {
 
-                    foreach (var curso in escuela.Cursos)
-                    {
-                        WriteLine($"Nombre : {curso.Nombre}, Id{curso.UniqueId}");
-                    }
-                
+                foreach (var curso in escuela.Cursos)
+                {
+                    WriteLine($"Nombre : {curso.Nombre}, Id{curso.UniqueId}");
+                }
+
             }
 
         }
