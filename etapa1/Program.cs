@@ -12,10 +12,9 @@ namespace CoreEscuela
         {
             var engine = new EscuelaEngine();
             engine.Inicializar();
+            Printer.WriteTitle("Bienvenidos a la Escuela");
+            Printer.Beep(10000,cantidad:10);
 
-            Printer.DibujarLinea();
-            Printer.DibujarLinea(20);
-            
             imprimirCursosEscuela(engine.Escuela);
 
 
@@ -25,9 +24,9 @@ namespace CoreEscuela
 
         private static void imprimirCursosEscuela(Escuela escuela)
         {
-            WriteLine("================");
-            WriteLine("Cursos de la Escuela");
-            WriteLine("================");
+
+            Printer.WriteTitle("Cursos de la Escuela");
+
             if (escuela?.Cursos != null)
             {
 
@@ -40,7 +39,7 @@ namespace CoreEscuela
 
         }
 
-      
+
     }
 }
 
